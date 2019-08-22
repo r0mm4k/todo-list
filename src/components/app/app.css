@@ -1,0 +1,25 @@
+.todo-app {
+	margin: 2rem auto 0 auto;
+	max-width: 500px;
+}
+
+@media (max-width: 530px) {
+	.todo-app {
+		max-width: 95%;
+	}
+
+	.search-panel {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+
+	.search-input {
+		margin-top: 10px;
+	}
+}
+
+@media (max-width: 305px) {
+	.todo-app {
+		max-width: 95%;
+	}
+}

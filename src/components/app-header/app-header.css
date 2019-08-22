@@ -1,0 +1,24 @@
+.app-header {
+	align-items: flex-end;
+}
+
+.app-header h1 {
+	flex-grow: 1;
+}
+
+.app-header h2 {
+	font-size: 1.2rem;
+	color: grey;
+}
+
+@media (max-width: 430px) {
+	.app-header {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.search-input {
+		margin-top: 10px;
+	}
+}
