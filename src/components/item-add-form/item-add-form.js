@@ -13,7 +13,7 @@ const ItemAddForm = ({statusApp, addData, addTaskCreator, changeAddInput, editIt
 			className='bottom-panel d-flex'
 			onSubmit={(e) => {
 				e.preventDefault();
-				STATUSES_APP.IN_PROGRESS_EDIT  ? editTaskCreator (editItemId, addData): addTaskCreator(addData);
+				statusApp === STATUSES_APP.IN_PROGRESS_EDIT  ? editTaskCreator (editItemId, addData): addTaskCreator(addData);
 			}}>
 			<input type='text'
 						 className='form-control new-todo-label'
