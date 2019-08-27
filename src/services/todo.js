@@ -54,6 +54,10 @@ export default class TodoService {
 		return await this.putResource(`/todos/${id}`, 'important', important);
 	};
 
+	editTask = async (id, title) => {
+		return await this.putResource(`/todos/${id}`, 'title', title);
+	};
+
 	_transformTask = (task) => {
 		return {
 			id: task._id,

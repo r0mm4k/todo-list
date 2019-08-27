@@ -1,12 +1,13 @@
 import {
 	ADD_TASK, DONE_TASK, DEL_TASK, IMPORTANT_TASK, CHANGED_ADD_INPUT, CHANGED_SEARCH_INPUT, CHANGED_FILTER,
-	SET_TASKS, SET_STATUS, STATUSES_APP
+	SET_TASKS, SET_STATUS, STATUSES_APP, EDIT_TASK, EDIT_MODE
 } from './constants';
 
 const initialState = {
 	todoData: [],
 	statusApp: STATUSES_APP.NOT_INIT,
 	addData: '',
+	editItemId: null,
 	searchData: '',
 	statusFilter: 'all'
 };
@@ -30,10 +31,25 @@ const todoReducer = (state = initialState, action) => {
 				addData: ''
 			};
 		}
+		case EDIT_MODE: {
+			return {
+				...state,
+				statusApp: STATUSES_APP.IN_PROGRESS_EDIT,
+				editItemId: action.id
+			};
+		}
 		case DONE_TASK: {
 			return {
 				...state,
 				todoData: state.todoData.map((e) => e.id === action.id ? {...e, done: !e.done} : e)
+			};
+		}
+		case EDIT_TASK: {
+			return {
+				...state,
+				todoData: state.todoData.map((e) => e.id === action.id ? {...e, title: action.task} : e),
+				editItemId: null,
+				addData: ''
 			};
 		}
 		case IMPORTANT_TASK: {

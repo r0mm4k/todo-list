@@ -4,14 +4,16 @@ import { STATUSES_APP } from "../../redux/constants";
 
 import './item-add-form.css';
 
-const ItemAddForm = ({statusApp, addData, addTaskCreator, changeAddInput}) => {
+const ItemAddForm = ({statusApp, addData, addTaskCreator, changeAddInput, editItemId, editTaskCreator}) => {
+
+	const btnName = statusApp === STATUSES_APP.IN_PROGRESS_EDIT ? 'Edit Item' : 'Add Item';
 
 	return (
 		<form
 			className='bottom-panel d-flex'
 			onSubmit={(e) => {
 				e.preventDefault();
-				addTaskCreator(addData);
+				STATUSES_APP.IN_PROGRESS_EDIT  ? editTaskCreator (editItemId, addData): addTaskCreator(addData);
 			}}>
 			<input type='text'
 						 className='form-control new-todo-label'
@@ -24,7 +26,7 @@ const ItemAddForm = ({statusApp, addData, addTaskCreator, changeAddInput}) => {
 				type='submit'
 				className='btn btn-outline-secondary'
 				disabled={statusApp === STATUSES_APP.IN_PROGRESS_APP}>
-				Add Item
+				{btnName}
 			</button>
 		</form>
 	);

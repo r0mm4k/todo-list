@@ -26,5 +26,11 @@
 .disabled {
   color: rgb(203, 203, 203);
   font-weight: 400;
+  cursor: auto;
+}
+
+.todo-list-item.important .disabled {
+  color: rgb(203, 203, 203);
+  font-weight: bold;
 }
 
